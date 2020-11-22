@@ -228,6 +228,9 @@ ja:
     menu:
       menu: メニュー
       sign_in_as: "%{email} としてログイン中"
+  shared:
+    comments:
+      create: コメントする
   users:
     show:
       followings: "%{count} フォロー"

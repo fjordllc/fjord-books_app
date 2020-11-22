@@ -236,6 +236,9 @@ en:
     menu:
       menu: Menu
       sign_in_as: "Sign-in as %{email}"
+  shared:
+    comments:
+      create: Post comment
   users:
     show:
       followings: "%{count} Following"
