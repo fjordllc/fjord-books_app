@@ -227,8 +227,16 @@ en:
       minimum_length: "%{length} characters minimum"
   users:
     show:
+      followings: "%{count} Following"
+      followers: "%{count} Followers"
       create: Follow
       destroy: Unfollow
+    followings:
+      index:
+        title: Following
+    followers:
+      index:
+        title: Followers
   controllers:
     common:
       notice_create: "%{name} was successfully created."
