@@ -37,7 +37,7 @@ Book.create!(
   picture: picture_file('erd.jpg')
 )
 
-50.times do
+55.times do
   Book.create!(
     title: Faker::Book.title,
     memo: Faker::Book.genre,
@@ -48,7 +48,7 @@ end
 
 User.destroy_all
 
-50.times do |n|
+55.times do |n|
   name = Faker::Name.name
   user = User.create!(
     email: "sample-#{n}@example.com",
@@ -60,6 +60,16 @@ User.destroy_all
   )
   image_url = Faker::Avatar.image(slug: user.email, size: '150x150')
   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
+end
+
+# User.destroy_all で全件削除されているはずだが念のため
+Relationship.destroy_all
+
+# 後輩が先輩を全員フォローする
+User.order(id: :desc).each do |user|
+  User.where('id < ?', user.id).each do |other|
+    user.follow(other)
+  end
 end
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
