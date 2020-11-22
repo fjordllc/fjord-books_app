@@ -2,7 +2,7 @@
   <strong><%= Comment.model_name.human %>:</strong>
   <% if commentable.comments.present? %>
     <ul>
-      <% commentable.comments.includes(:user).each do |comment| %>
+      <% commentable.comments.order(:id).includes(:user).each do |comment| %>
         <li>
           <%= comment.content %>
           <small>
