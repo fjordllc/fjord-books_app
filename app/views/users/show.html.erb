@@ -5,5 +5,27 @@
   <%= @user.email %>
 </p>
 
-<%= link_to t('views.common.edit'), edit_user_path(@user) %> |
+<p>
+  <strong><%= User.human_attribute_name(:name) %>:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
+  <%= @user.postal_code %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:self_introduction) %>:</strong>
+  <%= @user.self_introduction %>
+</p>
+
+<% if current_user == @user %>
+  <%= link_to t('views.common.edit'), edit_user_registration_path %> |
+<% end %>
 <%= link_to t('views.common.back'), users_path %>
