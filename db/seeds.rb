@@ -72,4 +72,18 @@ User.order(id: :desc).each do |user|
   end
 end
 
+Report.destroy_all
+
+users = User.all.to_a
+times = Array.new(55) { Faker::Time.between(from: 5.days.ago, to: 1.day.ago) }.sort
+55.times do |n|
+  time = times[n]
+  user = users.sample
+  title_length = [*10..20].sample
+  title = DummyTextJp.sentences(2)[0..title_length]
+  content_length = [*1..3].sample
+  content = DummyTextJp.sentences(content_length).gsub(/。/, "。\n")
+  user.reports.create!(title: title, content: content, created_at: time, updated_at: time)
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
