@@ -225,6 +225,16 @@ en:
       title_edit: "Editing %{name}"
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
+    pagination:
+      first: First
+      last: Last
+      previous: Prev
+      next: Next
+      truncate: '...'
+  layouts:
+    application:
+      menu: Menu
+      sign_in_as: "Sign-in as %{email}"
   users:
     show:
       followings: "%{count} Following"
@@ -247,10 +257,6 @@ en:
       notice: "Successfully followed."
     destroy:
       notice: "Successfully unfollowed."
-  layouts:
-    application:
-      menu: Menu
-      sign_in_as: "Sign-in as %{email}"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
