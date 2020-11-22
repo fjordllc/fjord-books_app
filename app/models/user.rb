@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :following
 
   has_many :reports, dependent: :destroy, inverse_of: :user
+  has_many :comments, dependent: :destroy, inverse_of: :user
 
   has_one_attached :avatar
 
