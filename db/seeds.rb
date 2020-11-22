@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'open-uri'
+
 print '開発環境のデータをすべて削除して初期データを投入します。よろしいですか？[Y/n]: ' # rubocop:disable Rails/Output
 unless $stdin.gets.chomp == 'Y'
   puts '中止しました。' # rubocop:disable Rails/Output
@@ -9,6 +11,8 @@ end
 def picture_file(name)
   File.open(Rails.root.join("db/seeds/#{name}"))
 end
+
+puts '実行中です。しばらくお待ちください...' # rubocop:disable Rails/Output
 
 Book.destroy_all
 
@@ -46,7 +50,7 @@ User.destroy_all
 
 50.times do |n|
   name = Faker::Name.name
-  User.create!(
+  user = User.create!(
     email: "sample-#{n}@example.com",
     password: 'password',
     name: name,
@@ -54,6 +58,8 @@ User.destroy_all
     address: Faker::Address.full_address,
     self_introduction: "こんにちは、#{name}です。"
   )
+  image_url = Faker::Avatar.image(slug: user.email, size: '150x150')
+  user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
