@@ -233,3 +233,9 @@ en:
   layouts:
     application:
       menu: Menu
+      sign_in_as: "Sign-in as %{email}"
+  # devise-i18n-viewsをオーバーライド
+  devise:
+    registrations:
+      edit:
+        title: "Edit account"

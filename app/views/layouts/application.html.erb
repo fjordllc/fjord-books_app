@@ -21,6 +21,12 @@
             <%= link_to User.model_name.human, users_path %>
           </li>
           <li>
+            <%= t('.sign_in_as', email: current_user.email) %>
+          </li>
+          <li>
+            <%= link_to t('devise.registrations.edit.title'), edit_user_registration_path %>
+          </li>
+          <li>
             <%= link_to t('views.common.sign_out'), destroy_user_session_path, method: :delete %>
           </li>
         </ul>
