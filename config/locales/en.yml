@@ -223,6 +223,7 @@ en:
       delete_confirm: "Are you sure?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      title_shoe: "%{name} Details"
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
     pagination:
@@ -232,7 +233,7 @@ en:
       next: Next
       truncate: '...'
   layouts:
-    application:
+    menu:
       menu: Menu
       sign_in_as: "Sign-in as %{email}"
   users:

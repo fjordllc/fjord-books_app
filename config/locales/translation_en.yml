@@ -1,17 +1,23 @@
 en:
   activerecord:
     models:
-      book: Book  #g
+      book: Book
+      report: Report
 
     attributes:
       book:
-        author: Author  #g
-        memo: Memo  #g
-        picture: Picture  #g
-        title: Title  #g
+        author: Author
+        memo: Memo
+        picture: Picture
+        title: Title
       user:
         name: Name
         postal_code: Postal code
         address: Address
         self_introduction: Self introduction
-        avatar: "User image"
+        avatar: User image
+      report:
+        title: Title
+        content: Content
+        user: User
+        created_on: Created on

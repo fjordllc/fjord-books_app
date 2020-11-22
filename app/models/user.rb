@@ -41,4 +41,8 @@ class User < ApplicationRecord
     relationship = active_relationships.find_by(follower_id: user.id)
     relationship&.destroy!
   end
+
+  def name_or_email
+    name.presence || email
+  end
 end
