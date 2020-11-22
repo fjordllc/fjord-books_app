@@ -223,6 +223,10 @@ ja:
       previous: '前'
       next: '次'
       truncate: '...'
+  layouts:
+    application:
+      menu: メニュー
+      sign_in_as: "%{email} としてログイン中"
   users:
     show:
       followings: "%{count} フォロー"
@@ -245,10 +249,6 @@ ja:
       notice: "フォローしました。"
     destroy:
       notice: "フォロー解除しました。"
-  layouts:
-    application:
-      menu: メニュー
-      sign_in_as: "%{email} としてログイン中"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
