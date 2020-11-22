@@ -31,6 +31,11 @@
   <% end %>
 </p>
 
+<ul>
+  <li><%= link_to t('.followings', count: @user.followings.count), user_followings_path(@user) %></li>
+  <li><%= link_to t('.followers', count: @user.followers.count), user_followers_path(@user) %></li>
+</ul>
+
 <% if current_user.following?(@user) %>
   <%= form_with(url: user_relationships_path(@user), method: :delete, local: true) do |f| %>
     <%= f.submit t('.destroy') %>

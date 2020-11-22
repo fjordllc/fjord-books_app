@@ -225,8 +225,16 @@ ja:
       truncate: '...'
   users:
     show:
+      followings: "%{count} フォロー"
+      followers: "%{count} フォロワー"
       create: フォローする
       destroy: フォロー解除する
+    followings:
+      index:
+        title: フォロー
+    followers:
+      index:
+        title: フォロワー
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
