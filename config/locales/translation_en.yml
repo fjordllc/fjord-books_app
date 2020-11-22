@@ -3,6 +3,7 @@ en:
     models:
       book: Book
       report: Report
+      comment: Comment
 
     attributes:
       book:
