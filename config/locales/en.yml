@@ -224,6 +224,7 @@ en:
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
       sign_out: "Sign out"
+      minimum_length: "%{length} characters minimum"
   controllers:
     common:
       notice_create: "%{name} was successfully created."
