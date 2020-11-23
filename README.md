@@ -1,4 +1,4 @@
-# books_app
+# fjord-books_app
 
 フィヨルドブートキャンプの「Rails の i18n を理解する」以降のRailsプラクティスの提出物をまとめるリポジトリです。
 
