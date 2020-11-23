@@ -223,6 +223,7 @@ en:
       delete_confirm: "Are you sure?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      title_show: "%{name} Details"
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
   controllers:
