@@ -12,6 +12,20 @@ def picture_file(name)
   File.open(Rails.root.join("db/seeds/#{name}"))
 end
 
+def add_comments_to(commentable)
+  comment_count = [*0..3].sample
+  times = Array.new(3) do
+    Faker::Time.between(from: commentable.created_at.since(10.minutes), to: commentable.created_at.since(2.days))
+  end.sort
+  users = User.all.to_a
+  comment_count.times do |n|
+    time = times[n]
+    user = users.sample
+    content = DummyTextJp.sentences(1)
+    commentable.comments.create!(user: user, content: content, created_at: time, updated_at: time)
+  end
+end
+
 puts '実行中です。しばらくお待ちください...' # rubocop:disable Rails/Output
 
 Book.destroy_all
@@ -62,7 +76,7 @@ User.destroy_all
   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
 
-# User.destroy_all で全件削除されているはずだが念のため
+# dependent: :destroy で全件削除されているはずだが念のため
 Relationship.destroy_all
 
 # 後輩が先輩を全員フォローする
@@ -84,6 +98,13 @@ times = Array.new(55) { Faker::Time.between(from: 5.days.ago, to: 1.day.ago) }.s
   content_length = [*1..3].sample
   content = DummyTextJp.sentences(content_length).gsub(/。/, "。\n")
   user.reports.create!(title: title, content: content, created_at: time, updated_at: time)
+end
+
+# dependent: :destroy で全件削除されているはずだが念のため
+Comment.destroy_all
+
+[*Book.all.to_a, *Report.all.to_a].each do |commentable|
+  add_comments_to(commentable)
 end
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
