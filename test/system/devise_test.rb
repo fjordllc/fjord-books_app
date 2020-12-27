@@ -59,7 +59,7 @@ class DeviseTest < ApplicationSystemTestCase
     fill_in '自己紹介文', with: 'よろしくお願いします！'
     attach_file 'ユーザ画像', Rails.root.join('test/fixtures/files/komagata.jpg')
     click_button '更新'
-    expect(page).to have_content 'アカウント情報を変更しました。'
+    assert_text 'アカウント情報を変更しました。'
 
     # 編集情報の確認
     visit user_path(User.find_by(email: 'alice-2@example.com'))
@@ -74,8 +74,9 @@ class DeviseTest < ApplicationSystemTestCase
     click_link 'アカウント編集'
     fill_in 'パスワード', with: 'password!!'
     fill_in 'パスワード（確認用）', with: 'password!!'
+    fill_in '現在のパスワード', with: 'password'
     click_button '更新'
-    expect(page).to have_content 'アカウント情報を変更しました。'
+    assert_text 'アカウント情報を変更しました。'
 
     click_link 'ログアウト'
     assert_text 'ログアウトしました。'
