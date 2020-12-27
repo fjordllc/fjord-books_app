@@ -12,7 +12,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  def sign_up
+
+  def sign_in
     visit root_path
     assert_css 'h2', text: 'ログイン'
     fill_in 'Eメール', with: 'komagata@example.com'

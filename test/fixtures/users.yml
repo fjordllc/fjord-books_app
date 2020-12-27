@@ -13,3 +13,13 @@ komagata:
   email: komagata@example.com
   name: 駒形 真幸
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+machida:
+  email: machida@example.com
+  name: 町田 哲平
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+matz:
+  email: matz@example.com
+  name: Matz
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

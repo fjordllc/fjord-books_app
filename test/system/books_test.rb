@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    sign_up
+    sign_in
   end
 
   test '本のCRUD' do
