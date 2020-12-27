@@ -9,3 +9,7 @@
 #
 #two: {}
 # column: value
+komagata:
+  email: komagata@example.com
+  name: 駒形 真幸
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

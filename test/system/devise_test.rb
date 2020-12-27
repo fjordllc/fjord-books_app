@@ -1,6 +1,11 @@
 require 'application_system_test_case'
 
 class DeviseTest < ApplicationSystemTestCase
+  setup do
+    # 既存のデータは全件削除
+    User.destroy_all
+  end
+
   test 'sign up / sign in / sign out / edit profile / edit password' do
     # アカウント登録
     visit root_path
@@ -14,9 +19,7 @@ class DeviseTest < ApplicationSystemTestCase
     attach_file 'ユーザ画像', Rails.root.join('test/fixtures/files/piyord.png')
     fill_in 'パスワード', with: 'password'
     fill_in 'パスワード（確認用）', with: 'password'
-    assert_changes("User.count", from: 0, to: 1) do
-      click_button 'アカウント登録'
-    end
+    click_button 'アカウント登録'
     assert_text 'アカウント登録が完了しました。'
     assert_text 'alice@example.com としてログイン中'
 
