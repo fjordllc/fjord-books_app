@@ -7,7 +7,7 @@ class BooksTest < ApplicationSystemTestCase
     sign_in
   end
 
-  test '本のCRUD' do
+  test '本のCRUD' do # rubocop:disable Metrics/BlockLength
     # 本の登録
     click_link '本'
     click_link '新規作成'
@@ -62,12 +62,12 @@ class BooksTest < ApplicationSystemTestCase
     end
 
     visit books_path
-    assert_text "本-30"
-    assert_text "本-6"
-    assert_no_text "本-5"
+    assert_text '本-30'
+    assert_text '本-6'
+    assert_no_text '本-5'
     click_link '次'
-    assert_no_text "本-6"
-    assert_text "本-5"
-    assert_text "本-1"
+    assert_no_text '本-6'
+    assert_text '本-5'
+    assert_text '本-1'
   end
 end

@@ -7,7 +7,7 @@ class ReportsTest < ApplicationSystemTestCase
     sign_in
   end
 
-  test '日報のCRUD' do
+  test '日報のCRUD' do # rubocop:disable Metrics/BlockLength
     # 日報の登録
     click_link '日報'
     click_link '新規作成'
@@ -55,12 +55,12 @@ class ReportsTest < ApplicationSystemTestCase
     end
 
     visit reports_path
-    assert_text "日報-30"
-    assert_text "日報-6"
-    assert_no_text "日報-5"
+    assert_text '日報-30'
+    assert_text '日報-6'
+    assert_no_text '日報-5'
     click_link '次'
-    assert_no_text "日報-6"
-    assert_text "日報-5"
-    assert_text "日報-1"
+    assert_no_text '日報-6'
+    assert_text '日報-5'
+    assert_text '日報-1'
   end
 end

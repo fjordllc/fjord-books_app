@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'application_system_test_case'
 
 class DeviseTest < ApplicationSystemTestCase
@@ -6,7 +8,7 @@ class DeviseTest < ApplicationSystemTestCase
     User.destroy_all
   end
 
-  test 'sign up / sign in / sign out / edit profile / edit password' do
+  test 'sign up / sign in / sign out / edit profile / edit password' do # rubocop:disable Metrics/BlockLength
     # アカウント登録
     visit root_path
     assert_css 'h2', text: 'ログイン'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
@@ -12,7 +14,7 @@ class UsersTest < ApplicationSystemTestCase
     sign_in
   end
 
-  test 'follow / unfollow' do
+  test 'follow / unfollow' do # rubocop:disable Metrics/BlockLength
     click_link 'ユーザ'
     within 'table' do
       assert_text '駒形 真幸'
@@ -70,16 +72,16 @@ class UsersTest < ApplicationSystemTestCase
     end
 
     visit users_path
-    assert_text "ユーザ-30"
-    assert_text "ユーザ-6"
-    assert_no_text "ユーザ-5"
+    assert_text 'ユーザ-30'
+    assert_text 'ユーザ-6'
+    assert_no_text 'ユーザ-5'
     click_link '次'
-    assert_no_text "ユーザ-6"
-    assert_text "ユーザ-5"
-    assert_text "ユーザ-1"
-    assert_text "Matz"
-    assert_text "町田 哲平"
-    assert_text "駒形 真幸"
+    assert_no_text 'ユーザ-6'
+    assert_text 'ユーザ-5'
+    assert_text 'ユーザ-1'
+    assert_text 'Matz'
+    assert_text '町田 哲平'
+    assert_text '駒形 真幸'
   end
 
   test 'フォロー一覧のページネーション' do
@@ -89,13 +91,13 @@ class UsersTest < ApplicationSystemTestCase
     end
 
     visit user_followings_path(@matz)
-    assert_text "ユーザ-30"
-    assert_text "ユーザ-6"
-    assert_no_text "ユーザ-5"
+    assert_text 'ユーザ-30'
+    assert_text 'ユーザ-6'
+    assert_no_text 'ユーザ-5'
     click_link '次'
-    assert_no_text "ユーザ-6"
-    assert_text "ユーザ-5"
-    assert_text "ユーザ-1"
+    assert_no_text 'ユーザ-6'
+    assert_text 'ユーザ-5'
+    assert_text 'ユーザ-1'
   end
 
   test 'フォロワー一覧のページネーション' do
@@ -105,12 +107,12 @@ class UsersTest < ApplicationSystemTestCase
     end
 
     visit user_followers_path(@machida)
-    assert_text "ユーザ-30"
-    assert_text "ユーザ-6"
-    assert_no_text "ユーザ-5"
+    assert_text 'ユーザ-30'
+    assert_text 'ユーザ-6'
+    assert_no_text 'ユーザ-5'
     click_link '次'
-    assert_no_text "ユーザ-6"
-    assert_text "ユーザ-5"
-    assert_text "ユーザ-1"
+    assert_no_text 'ユーザ-6'
+    assert_text 'ユーザ-5'
+    assert_text 'ユーザ-1'
   end
 end
