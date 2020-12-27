@@ -55,4 +55,19 @@ class BooksTest < ApplicationSystemTestCase
       assert_no_text 'チェリー本'
     end
   end
+
+  test '本のページネーション' do
+    1.upto(30) do |n|
+      Book.create!(title: "本-#{n}")
+    end
+
+    visit books_path
+    assert_text "本-30"
+    assert_text "本-6"
+    assert_no_text "本-5"
+    click_link '次'
+    assert_no_text "本-6"
+    assert_text "本-5"
+    assert_text "本-1"
+  end
 end

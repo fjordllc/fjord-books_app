@@ -63,4 +63,54 @@ class UsersTest < ApplicationSystemTestCase
     assert_no_button 'フォローする'
     assert_no_button 'フォロー解除する'
   end
+
+  test 'ユーザのページネーション' do
+    1.upto(30) do |n|
+      User.create!(name: "ユーザ-#{n}", email: "user-#{n}@example.com", password: 'password')
+    end
+
+    visit users_path
+    assert_text "ユーザ-30"
+    assert_text "ユーザ-6"
+    assert_no_text "ユーザ-5"
+    click_link '次'
+    assert_no_text "ユーザ-6"
+    assert_text "ユーザ-5"
+    assert_text "ユーザ-1"
+    assert_text "Matz"
+    assert_text "町田 哲平"
+    assert_text "駒形 真幸"
+  end
+
+  test 'フォロー一覧のページネーション' do
+    1.upto(30) do |n|
+      other = User.create!(name: "ユーザ-#{n}", email: "user-#{n}@example.com", password: 'password')
+      @matz.follow(other)
+    end
+
+    visit user_followings_path(@matz)
+    assert_text "ユーザ-30"
+    assert_text "ユーザ-6"
+    assert_no_text "ユーザ-5"
+    click_link '次'
+    assert_no_text "ユーザ-6"
+    assert_text "ユーザ-5"
+    assert_text "ユーザ-1"
+  end
+
+  test 'フォロワー一覧のページネーション' do
+    1.upto(30) do |n|
+      other = User.create!(name: "ユーザ-#{n}", email: "user-#{n}@example.com", password: 'password')
+      other.follow(@machida)
+    end
+
+    visit user_followers_path(@machida)
+    assert_text "ユーザ-30"
+    assert_text "ユーザ-6"
+    assert_no_text "ユーザ-5"
+    click_link '次'
+    assert_no_text "ユーザ-6"
+    assert_text "ユーザ-5"
+    assert_text "ユーザ-1"
+  end
 end

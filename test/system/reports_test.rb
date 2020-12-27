@@ -47,4 +47,20 @@ class ReportsTest < ApplicationSystemTestCase
       assert_no_text 'My first report'
     end
   end
+
+  test '日報のページネーション' do
+    user = users(:komagata)
+    1.upto(30) do |n|
+      user.reports.create!(title: "日報-#{n}", content: '日報です。')
+    end
+
+    visit reports_path
+    assert_text "日報-30"
+    assert_text "日報-6"
+    assert_no_text "日報-5"
+    click_link '次'
+    assert_no_text "日報-6"
+    assert_text "日報-5"
+    assert_text "日報-1"
+  end
 end
