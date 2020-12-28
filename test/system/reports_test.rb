@@ -4,6 +4,8 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
+    # 既存のデータは全件削除
+    Report.destroy_all
     sign_in
   end
 
