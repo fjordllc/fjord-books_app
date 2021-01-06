@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       book: 本  #g
+      report: 日報
 
     attributes:
       book:
@@ -18,3 +19,4 @@ ja:
       report:
         title: タイトル
         content: 内容
+        user: 作成ユーザーID
