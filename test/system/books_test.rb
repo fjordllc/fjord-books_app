@@ -10,7 +10,9 @@ class BooksTest < ApplicationSystemTestCase
   test '本のCRUD' do # rubocop:disable Metrics/BlockLength
     # 本の登録
     click_link '本'
+    assert_css 'h1', text: '本'
     click_link '新規作成'
+    assert_css 'h1', text: '本の新規作成'
     fill_in 'タイトル', with: 'プロを目指す人のためのRuby入門'
     fill_in 'メモ', with: 'Rubyの文法をサンプルコードで学び、例題でプログラミングの流れを体験できる解説書です。'
     fill_in '著者', with: '伊藤 淳一'
@@ -25,6 +27,7 @@ class BooksTest < ApplicationSystemTestCase
 
     # 本の編集
     click_link '編集'
+    assert_css 'h1', text: '本の編集'
     fill_in 'タイトル', with: 'チェリー本'
     fill_in 'メモ', with: 'Railsをやる前に、Rubyを知ろう'
     fill_in '著者', with: 'jnchito'

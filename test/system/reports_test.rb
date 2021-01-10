@@ -12,7 +12,9 @@ class ReportsTest < ApplicationSystemTestCase
   test '日報のCRUD' do # rubocop:disable Metrics/BlockLength
     # 日報の登録
     click_link '日報'
+    assert_css 'h1', text: '日報'
     click_link '新規作成'
+    assert_css 'h1', text: '日報の新規作成'
     fill_in 'タイトル', with: 'はじめての日報'
     fill_in '内容', with: 'はじめまして。よろしくお願いします。'
     click_button '登録する'
@@ -23,6 +25,7 @@ class ReportsTest < ApplicationSystemTestCase
 
     # 日報の編集
     click_link '編集'
+    assert_css 'h1', text: '日報の編集'
     fill_in 'タイトル', with: 'My first report'
     fill_in '内容', with: 'Hello, everyone!'
     click_button '更新する'
