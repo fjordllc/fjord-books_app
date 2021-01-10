@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :reports
+  
   validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
   def self.from_omniauth(auth)
