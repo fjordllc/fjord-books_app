@@ -9,6 +9,9 @@ class ReportsController < ApplicationController
 
   # GET /reports/1
   def show
+     @comment=@report.comments.build(user_id: current_user.id)
+     @comments=@report.comments
+
   end
 
   # GET /reports/new
@@ -19,8 +22,6 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
-
-
   end
 
   # POST /reports
@@ -67,3 +68,11 @@ class ReportsController < ApplicationController
       end
     end
 end
+
+# def comment_params
+#   params.require(:comment).permit(:commentable_type,:commentable_id,:body,:user_id)
+# end
+
+# def set_commentable  
+#   @commentable = Report.find(params[:report_id])  
+# end  
