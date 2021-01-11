@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   def show
      @comment=@report.comments.build(user_id: current_user.id)
-     @comments=@report.comments
+     @comments=@report.comments.all
 
   end
 

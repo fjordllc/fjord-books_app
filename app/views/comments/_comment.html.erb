@@ -3,13 +3,31 @@
 
 <%= form_with model: [commentable,comment ] do |f| %>  
   <%= f.text_area :body %>  
-  <%= f.hidden_field :user_id,  :value => current_user.id %>
+  <%= f.hidden_field :user_id,  :value => current_user.id %><br>
    <%= f.submit "コメントをする" %>  
 <% end %>
 
+<table>
+  <thead>
+    <tr>
+      <th>CommentTitle</th>
+      <th>投稿者</th>
+      <th>投稿時間</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
 <% @comments.each do |comment|%>
-
- <%= comment.body %>
- <%= comment.user_id %><br>
-
-<% end %>
+      <tr>
+         <td> <%= comment.body %></td>
+         <% if comment.user_id %>
+         <td> <%= User.find(comment.user_id.to_s).name %></td>
+         <% else %>
+         <td></td>
+         <% end %>
+         <td> <%= comment.created_at.to_s(:datetime_jp) %><br></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
