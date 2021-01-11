@@ -21,10 +21,10 @@
 <% @comments.each do |comment|%>
       <tr>
          <td> <%= comment.body %></td>
-         <% if comment.user_id %>
-         <td> <%= User.find(comment.user_id.to_s).name %></td>
+         <% if User.find(comment.user_id.to_s).name=="" %>
+         <td> <%=  User.find(comment.user_id.to_s).email %></td>
          <% else %>
-         <td></td>
+        <td> <%= User.find(comment.user_id.to_s).name %></td>
          <% end %>
          <td> <%= comment.created_at.to_s(:datetime_jp) %><br></td>
       </tr>

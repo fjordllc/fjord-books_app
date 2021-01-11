@@ -11,7 +11,10 @@ class BooksController < ApplicationController
 
   # GET /books/1
   # GET /books/1.json
-  def show; end
+  def show
+     @comment=@book.comments.build(user_id: current_user.id)
+     @comments=@book.comments.all
+  end
 
   # GET /books/new
   def new

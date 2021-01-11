@@ -11,7 +11,6 @@ class ReportsController < ApplicationController
   def show
      @comment=@report.comments.build(user_id: current_user.id)
      @comments=@report.comments.all
-
   end
 
   # GET /reports/new
