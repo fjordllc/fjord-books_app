@@ -26,7 +26,7 @@
          <% else %>
         <td> <%= User.find(comment.user_id.to_s).name %></td>
          <% end %>
-         <td> <%= comment.created_at.to_s(:datetime_jp) %><br></td>
+         <td> <%= l comment.created_at %><br></td>
       </tr>
     <% end %>
   </tbody>
