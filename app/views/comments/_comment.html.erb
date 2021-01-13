@@ -1,5 +1,4 @@
-<h2>コメント</h2>
-<h3>投稿</h3>
+<h2>コメント投稿</h2>
 
 <%= form_with model: [commentable,comment ] do |f| %>  
   <%= f.text_area :body ,:required => true %>  
@@ -7,10 +6,11 @@
    <%= f.submit "コメントをする" %>  
 <% end %>
 
+<h2>コメント一覧</h2>
 <table>
   <thead>
     <tr>
-      <th>CommentTitle</th>
+      <th>Comment</th>
       <th>投稿者</th>
       <th>投稿時間</th>
 
@@ -21,19 +21,14 @@
 <% comments.each do |comment|%>
      
       <tr>
-         <td><%= comment.id %></td>
          <td> <%= comment.body %></td>
-         <% if User.find(comment.user_id.to_s).name=="" %>
-         <td> <%=  User.find(comment.user_id.to_s).email %></td>
+         <% if comment.user.name=="" %>
+         <td> <%= comment.user.email %></td>
          <% else %>
-        <td> <%= User.find(comment.user_id.to_s).name %></td>
+        <td> <%= comment.user.name %></td>
          <% end %>
          <td> <%= l comment.created_at %><br></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<% commentable.comments.each do |mikan| %>
-<%= mikan.body  %>
- <% end %>
