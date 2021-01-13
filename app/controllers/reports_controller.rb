@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_commentable, only: [:show]
   # GET /reports
   # GET /reports.json
   def index
@@ -10,6 +10,16 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    p "*****************************************"
+    p @comment = @report.comments.new
+    p "*****************************************"
+    p @comments = @report.comments.all
+    p "*****************************************"
+    @comments.each do |c|
+      p c.content
+      p User.find(c.user_id)
+    end
+    p "*****************************************"
   end
 
   # GET /reports/new
@@ -66,5 +76,10 @@ class ReportsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def report_params
       params.require(:report).permit(:title, :content, :user_id)
+    end
+
+    def set_commentable
+      resource, id = request.path.split('/')[1,2]
+      @commentable = resource.singularize.classify.constantize.find(id)
     end
 end

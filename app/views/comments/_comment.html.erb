@@ -1,0 +1,15 @@
+<h1>コメント一覧</h1>
+<% @comments.each do |c| %>
+  <div>
+    <%= User.find(c.user_id).name %>
+    <%= ":" %>
+    <%= c.content %>
+    <hr>
+  </div>
+<% end %>
+<%= form_for [@commentable, @comment] do |f| %>
+  <%= f.hidden_field :commentable_type, value: @comment.commentable_type %>
+  <%= f.hidden_field :commentable_id, value: @comment.commentable_id %>
+  <%= f.text_field :content %>
+  <%= f.submit 'コメントする' %>
+<% end %>
