@@ -64,7 +64,8 @@ class DeviseTest < ApplicationSystemTestCase
     assert_text 'アカウント情報を変更しました。'
 
     # 編集情報の確認
-    visit user_path(User.find_by(email: 'alice-2@example.com'))
+    user = User.find_by(email: 'alice-2@example.com')
+    visit user_path(user)
     assert_text 'alice-2@example.com'
     assert_text 'ありす'
     assert_text '156-9999'
@@ -79,6 +80,7 @@ class DeviseTest < ApplicationSystemTestCase
     fill_in '現在のパスワード', with: 'password'
     click_button '更新'
     assert_text 'アカウント情報を変更しました。'
+    assert_current_path user_path(user)
 
     click_link 'ログアウト'
     assert_text 'ログアウトしました。'
