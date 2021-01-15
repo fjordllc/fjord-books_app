@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  def destroy
+    # 日報を削除する
+    Report.where(poster_id: current_user.id).destroy_all
+    # コメントを削除する
+    Comment.where(poster_id: current_user.id).destroy_all
+
+    User.find(current_user.id).destroy
+    redirect_to users_path
+  end
+
   protected
 
   # Override

@@ -1,0 +1,32 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @commentable.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:content) %>:</strong>
+  <%= @commentable.content %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:poster) %>:</strong>
+  <% if User.find(@commentable.poster_id).name.empty? %>
+    <%= User.find(@commentable.poster_id).email %>
+  <% else %>
+   <%= User.find(@commentable.poster_id).name %>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:posted_at) %>:</strong>
+  <%= @commentable.created_at.strftime('%Y/%-m/%-d %-H:%M') %>
+</p>
+
+<%= render 'comments/comments' %>
+
+<% if User.find(@commentable.poster_id) == current_user %>
+  <%= link_to t('views.common.edit'), edit_report_path(@commentable) %> |
+<% end %>
+<%= link_to t('views.common.back'), reports_path %>

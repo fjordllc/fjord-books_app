@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       book: 本  #g
+      report: 日報
+      comment: コメント
 
     attributes:
       book:
@@ -9,9 +11,19 @@ ja:
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
+        created_at: 登録日時
       user:
         name: 氏名
         postal_code: 郵便番号
         address: 住所
         self_introduction: 自己紹介文
         avatar: ユーザ画像
+      report:
+        title: 件名
+        content: 本文
+        poster: 投稿者
+        posted_at: 投稿日時
+      comment:
+        content: 内容
+        poster: 投稿者
+        posted_at: 投稿日時
