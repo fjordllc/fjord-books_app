@@ -7,11 +7,14 @@ class Report < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  # reportのuserがtarget_userならばtrue
   def editable?(target_user)
     user == target_user
   end
 
+  # reportが作られた日付
   def created_on
     created_at.to_date
   end
+
 end
