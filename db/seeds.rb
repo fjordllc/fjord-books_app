@@ -20,7 +20,7 @@ puts '実行中です。しばらくお待ちください...' # rubocop:disable 
 
 Book.destroy_all
 
-Book.transaction do
+Book.transaction do # rubocop:disable Metrics/BlockLength
   Book.create!(
     title: 'Ruby超入門',
     memo: 'Rubyの文法の基本をやさしくていねいに解説しています。',
