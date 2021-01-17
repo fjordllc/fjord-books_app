@@ -10,7 +10,6 @@ class ReportTest < ActiveSupport::TestCase
     report=Report.new(id:1,user_id: user_alice.id,title:"タイトル",content:"内容")
     assert report.editable?(user_alice)
     assert_not report.editable?(user_bob)
-
   end
 
   test '#created_on?' do
