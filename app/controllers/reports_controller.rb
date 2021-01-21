@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: %i[show edit update destroy]
   before_action :set_commentable, only: %i[show]
   # GET /reports
   # GET /reports.json
@@ -20,8 +22,7 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /reports
   # POST /reports.json
@@ -60,18 +61,19 @@ class ReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_report
-      @report = Report.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def report_params
-      params.require(:report).permit(:title, :content, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_report
+    @report = Report.find(params[:id])
+  end
 
-    def set_commentable
-      resource, id = request.path.split('/')[1,2]
-      @commentable = resource.singularize.classify.constantize.find(id)
-    end
+  # Only allow a list of trusted parameters through.
+  def report_params
+    params.require(:report).permit(:title, :content, :user_id)
+  end
+
+  def set_commentable
+    resource, id = request.path.split('/')[1, 2]
+    @commentable = resource.singularize.classify.constantize.find(id)
+  end
 end
