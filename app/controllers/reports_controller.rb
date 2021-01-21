@@ -11,7 +11,7 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
     @comment = @commentable.comments.new
-    @comments = @commentable.comments.all
+    @comments = @commentable.comments.order(:id).page(params[:page]).per(10)
   end
 
   # GET /reports/new
@@ -31,7 +31,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
       else
         format.html { render :new }
       end
@@ -43,7 +43,7 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human) }
       else
         format.html { render :edit }
       end
@@ -55,7 +55,7 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
     respond_to do |format|
-      format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
+      format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
     end
   end
 

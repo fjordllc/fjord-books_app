@@ -4,15 +4,10 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to @commentable, notice: 'コメントを作成しました'
+      redirect_to @commentable, notice: t('comments.success')
     else
-      redirect_to @commentable, notice: 'コメントを入力してください'
+      redirect_to @commentable, notice: t('comments.failure')
     end
-    p "++++++++++++++++++++++++++++++"
-    @commentable.comments.all.each do |c|
-      p User.find(c.user_id).name
-    end
-    p "++++++++++++++++++++++++++++++"
   end
 
   private

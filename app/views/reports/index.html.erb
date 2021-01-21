@@ -19,7 +19,7 @@
         <td><%= report.title %></td>
         <td><%= report.content %></td>
         <td><%= report.user.name %></td>
-        <td><%= report.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= report.created_at.strftime('%Y/%m/%d %R') %></td>
         <td><%= link_to t('views.common.show'), report %></td>
         <% if report.user_id == current_user.id %>
           <td><%= link_to t('views.common.edit'), edit_report_path(report) %></td>

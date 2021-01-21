@@ -14,7 +14,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @comment = @commentable.comments.new
-    @comments = @commentable.comments.all
+    @comments = @commentable.comments.order(:id).page(params[:page]).per(10)
   end
 
   # GET /books/new
