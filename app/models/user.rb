@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   has_many :reports, dependent: :destroy
 
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
 

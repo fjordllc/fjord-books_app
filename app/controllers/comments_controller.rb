@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_commentable, only: %i[create]  
+  before_action :set_commentable
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
@@ -8,6 +8,11 @@ class CommentsController < ApplicationController
     else
       redirect_to @commentable, notice: 'コメントを入力してください'
     end
+    p "++++++++++++++++++++++++++++++"
+    @commentable.comments.all.each do |c|
+      p User.find(c.user_id).name
+    end
+    p "++++++++++++++++++++++++++++++"
   end
 
   private

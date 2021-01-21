@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :set_commentable, only: %i[show]
 
   # GET /books
   # GET /books.json
@@ -11,7 +12,10 @@ class BooksController < ApplicationController
 
   # GET /books/1
   # GET /books/1.json
-  def show; end
+  def show
+    @comment = @commentable.comments.new
+    @comments = @commentable.comments.all
+  end
 
   # GET /books/new
   def new
@@ -66,6 +70,11 @@ class BooksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def set_commentable
+    resource, id = request.path.split('/')[1,2]
+    @commentable = resource.singularize.classify.constantize.find(id)
   end
 
   # Only allow a list of trusted parameters through.

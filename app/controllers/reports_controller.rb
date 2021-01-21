@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :set_commentable, only: [:show]
+  before_action :set_commentable, only: %i[show]
   # GET /reports
   # GET /reports.json
   def index
@@ -10,16 +10,8 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    p "*****************************************"
-    p @comment = @report.comments.new
-    p "*****************************************"
-    p @comments = @report.comments.all
-    p "*****************************************"
-    @comments.each do |c|
-      p c.content
-      p User.find(c.user_id)
-    end
-    p "*****************************************"
+    @comment = @commentable.comments.new
+    @comments = @commentable.comments.all
   end
 
   # GET /reports/new

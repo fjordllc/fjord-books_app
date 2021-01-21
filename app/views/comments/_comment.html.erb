@@ -1,15 +1,17 @@
 <h1>コメント一覧</h1>
 <% @comments.each do |c| %>
   <div>
+  <% if User.find(c.user_id).name.size == 0 %>
+    <%= User.find(c.user_id).email %>
+  <% else %>
     <%= User.find(c.user_id).name %>
+  <% end %> 
     <%= ":" %>
     <%= c.content %>
     <hr>
   </div>
 <% end %>
 <%= form_for [@commentable, @comment] do |f| %>
-  <%= f.hidden_field :commentable_type, value: @comment.commentable_type %>
-  <%= f.hidden_field :commentable_id, value: @comment.commentable_id %>
   <%= f.text_field :content %>
   <%= f.submit 'コメントする' %>
 <% end %>
