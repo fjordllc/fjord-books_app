@@ -2,18 +2,13 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
-  before_action :set_commentable, only: %i[show]
   # GET /reports
-  # GET /reports.json
   def index
     @reports = Report.order(:id).page(params[:page])
   end
 
   # GET /reports/1
-  # GET /reports/1.json
   def show
-    @comment = @commentable.comments.new
-    @comments = @commentable.comments.order(:id).page(params[:page]).per(10)
   end
 
   # GET /reports/new
@@ -25,39 +20,29 @@ class ReportsController < ApplicationController
   def edit; end
 
   # POST /reports
-  # POST /reports.json
   def create
     @report = Report.new(report_params)
     @report.user_id = current_user.id
-
-    respond_to do |format|
-      if @report.save
-        format.html { redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
-      else
-        format.html { render :new }
-      end
+    if @report.save
+      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /reports/1
-  # PATCH/PUT /reports/1.json
   def update
-    respond_to do |format|
-      if @report.update(report_params)
-        format.html { redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human) }
-      else
-        format.html { render :edit }
-      end
+    if @report.update(report_params)
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit
     end
   end
 
   # DELETE /reports/1
-  # DELETE /reports/1.json
   def destroy
     @report.destroy
-    respond_to do |format|
-      format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
-    end
+      redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
@@ -69,11 +54,6 @@ class ReportsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def report_params
-    params.require(:report).permit(:title, :content, :user_id)
-  end
-
-  def set_commentable
-    resource, id = request.path.split('/')[1, 2]
-    @commentable = resource.singularize.classify.constantize.find(id)
+    params.require(:report).permit(:title, :content)
   end
 end
