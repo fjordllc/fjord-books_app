@@ -8,8 +8,7 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1
-  def show
-  end
+  def show; end
 
   # GET /reports/new
   def new
@@ -42,7 +41,7 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   def destroy
     @report.destroy
-      redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
+    redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
