@@ -1,0 +1,19 @@
+<h1><%= Comment.model_name.human %></h1>
+<% commentable.comments.each do |c| %>
+  <div>
+  <% if c.user.name.size == 0 %>
+    <%= c.user.email %>
+  <% else %>
+    <%= c.user.name %>
+  <% end %> 
+    <%= ":" %>
+    <%= c.content %>
+    <%= I18n.l c.created_at, format: :long %>
+    <hr>
+  </div>
+<% end %>
+
+<%= form_for [commentable, commentable.comments.new] do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit t('views.common.comment') %>
+<% end %>
