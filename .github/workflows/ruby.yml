@@ -7,7 +7,9 @@
 
 name: Ruby
 
-on: pull_request
+on:
+  - pull_request
+  - push
 
 jobs:
   rubocop-test:
