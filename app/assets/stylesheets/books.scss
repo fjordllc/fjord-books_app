@@ -185,7 +185,8 @@ body {
 .main_title {
   text-align: center;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: bold;
   padding: 1.5em;
   background-color: cornflowerblue;
 }
@@ -197,6 +198,7 @@ body {
 .main_table th {
   padding: 1em;
   border-bottom: 1.4px solid #CCCCCC;
+  font-size: 1.1em;
 }
 
 .main_table td {
