@@ -1,0 +1,9 @@
+<h1><%= t('views.homes.home') %></h1>
+
+<%= link_to t('views.common.books'), books_url %>
+<br>
+<%= link_to t('views.common.change_my_user_information'), '/users/edit' %>
+<br>
+<%= link_to t('views.common.users'), users_path %>
+<br>
+<%= button_to t('views.common.sign_out'), '/users/sign_out', method: 'delete' %>

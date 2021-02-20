@@ -215,12 +215,21 @@ ja:
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      books: 書籍一覧
+      users: ユーザー一覧
+      sign_out: ログアウト
+      change_my_user_information: 自分のユーザー情報を変更
     pagination:
       first: '最初'
       last: '最後'
       previous: '前'
       next: '次'
       truncate: '...'
+    users:
+      user_list: ユーザー一覧
+      user_detail: ユーザー詳細
+    homes:
+      home: "ホーム"
   controllers:
     common:
       notice_create: "%{name}が作成されました。"

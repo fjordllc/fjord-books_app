@@ -1,0 +1,20 @@
+<h1><%= t('views.users.user_list') %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th><%= User.human_attribute_name(:email) %></th>
+  </tr>
+
+  <tbody>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.email, controller: "users", action: "show", id: user.id %></td>
+  </tr>
+  <% end %>
+  </tbody>
+  </thead>
+</table>
+
+<%= paginate @users %>
+<%= button_to t('views.common.back'), '/', method: 'get' %>

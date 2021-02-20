@@ -42,4 +42,16 @@ Book.create!(
   )
 end
 
+User.destroy_all
+
+10.times do |i|
+  User.create!(
+    email: "hoge#{i}@hoge.com",
+    password: 'changeme',
+    postal_code: '3718570',
+    address: '群馬県前橋市大手町１丁目１−１',
+    self_introduction: 'ぐんまちゃん。好きなこと　楽しいこと、人を笑顔にすること、温泉でリフレッシュ、ぐんまの食べ物。特技　みんなを癒す不思議な力。'
+  )
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
