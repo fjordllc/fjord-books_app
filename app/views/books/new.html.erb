@@ -1,5 +1,6 @@
-<h1>New Book</h1>
+<% provide(:btn_text, t(:new_btn)) %>
+<h1><%= t :new_title %></h1>
 
 <%= render 'form', book: @book %>
 
-<%= link_to 'Back', books_path %>
+<%= link_to t(:back), books_path %>
