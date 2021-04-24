@@ -61,7 +61,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
+gem 'dotenv-rails'
 gem 'kaminari'
 gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-github'
-gem 'dotenv-rails'
