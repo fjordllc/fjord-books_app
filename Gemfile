@@ -68,4 +68,3 @@ gem 'image_processing', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
-
