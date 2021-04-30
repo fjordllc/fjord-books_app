@@ -4,6 +4,7 @@ ja:
       book: 本
       report: 日報
       comment: コメント
+      user: ユーザ
 
     attributes:
       book:

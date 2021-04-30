@@ -11,7 +11,7 @@ class OAuthTest < ApplicationSystemTestCase
   test 'GitHub sign up' do
     visit root_path
     assert_css 'h2', text: 'ログイン'
-    click_link 'GitHubでログイン'
+    click_button 'GitHubでログイン'
     assert_text 'GitHub アカウントによる認証に成功しました。'
     assert_text 'alice@example.com としてログイン中'
     click_link 'ユーザ'
