@@ -10,14 +10,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = 'Following'
+    @title = t('views.common.Following')
     @user  = User.find(params[:id])
     @users = @user.following.page(params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = 'Followers'
+    @title = t('views.common.Followers')
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page])
     render 'show_follow'
