@@ -60,6 +60,7 @@ class DeviseTest < ApplicationSystemTestCase
     fill_in '住所', with: '東京都世田谷区松原2-34-11 ベルヴィカワダ 999'
     fill_in '自己紹介文', with: 'よろしくお願いします！'
     attach_file 'ユーザ画像', Rails.root.join('test/fixtures/files/komagata.jpg')
+    fill_in '現在のパスワード', with: 'password'
     click_button '更新'
     assert_text 'アカウント情報を変更しました。'
 
