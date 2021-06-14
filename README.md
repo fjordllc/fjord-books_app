@@ -22,7 +22,7 @@
 $ git clone https://github.com/自分のアカウント名/fjord-books_app.git
 ```
 
-4. `cd fjord-books_app` でディレクトリを移動したあと、 `git fetch` コマンドを実行してください。
+4. `cd fjord-books_app` でカレントディレクトリを変更してください。
 5. `.ruby-version` に書かれたバージョンのRubyがインストールされていなければインストールしてください。
 
 ### プラクティスごとに行う操作
