@@ -4,7 +4,7 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= user.name %>
+      <%= link_to(user.name,"/users/show" ) %>
     </li>
   <% end %>
 </ul>
