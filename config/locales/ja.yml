@@ -17,7 +17,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    -
+    - 
     - 1月
     - 2月
     - 3月
@@ -43,7 +43,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    -
+    - 
     - 1月
     - 2月
     - 3月
@@ -205,24 +205,3 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  views:
-    common:
-      show: 詳細
-      edit: 編集
-      destroy: 削除
-      new: 新規作成
-      back: 戻る
-      delete_confirm: よろしいですか？
-      title_new: "%{name}の新規作成"
-      title_edit: "%{name}の編集"
-    pagination:
-      first: '最初'
-      last: '最後'
-      previous: '前'
-      next: '次'
-      truncate: '...'
-  controllers:
-    common:
-      notice_create: "%{name}が作成されました。"
-      notice_update: "%{name}が更新されました。"
-      notice_destroy: "%{name}が削除されました。"
