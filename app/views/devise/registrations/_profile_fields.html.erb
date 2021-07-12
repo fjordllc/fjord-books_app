@@ -18,12 +18,3 @@
   <%= f.text_area :self_introduction %>
 </div>
 
-<div class="field">
-  <%= f.label :avatar %>
-  <%= image_tag @user.avatar, size: "50x50" if @user.avatar.attached? %>
-</div>
-
-<div class="field">
-  <%= f.file_field :avatar, accept: "image/png, image/jpeg, image/gif" %>
-</div>
-
