@@ -32,6 +32,8 @@
     <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %></i>)<br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+  
+  <%= f.file_field :avatar %>
 
   <div class="actions">
     <%= f.submit t('.update') %>
