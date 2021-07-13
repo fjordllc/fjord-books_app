@@ -1,4 +1,14 @@
 <p>
+  <strong>Created at:</strong>
+  <%= @report.created_at.to_s(:datetime_jp) %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @report.updated_at.to_s(:datetime_jp) %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @report.title %>
 </p>
@@ -6,11 +16,6 @@
 <p>
   <strong>Body:</strong>
   <%= @report.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @report.user_id %>
 </p>
 
 <%= link_to 'Edit', edit_report_path(@report) %> |
