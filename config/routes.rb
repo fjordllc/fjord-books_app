@@ -11,4 +11,7 @@ Rails.application.routes.draw do
       resources :followers, only: [:index]
     end
   end
+  resources :books, :reports do
+    resources :comments, only: %i[create]
+  end
 end
