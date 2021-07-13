@@ -18,6 +18,7 @@ ja:
         self_introduction: 自己紹介文
         avatar: ユーザ画像
       report:
+        name: 日報
         title: タイトル
         body: 本文
         created_at: 作成日時
