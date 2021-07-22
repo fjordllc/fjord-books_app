@@ -7,8 +7,13 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  # resources :users, only: %i(index show edit update) do
+  #   resource :relationships, only: %i(create destroy)
+  #   get 'followings' => 'relationships#followings', as: 'followings'
+  #   get 'followings' => 'relationships#followers', as: 'followers'
+  # end
   resources :books
   resources :users, only: %i(index show)
-  resources :relationships, only: %i[create destroy]
-  resources :relationships, only: %i[create, destroy]
+  resources :relationships, only: %i(create destroy)
+  resources :relationships, only: %i(create destroy)
 end
