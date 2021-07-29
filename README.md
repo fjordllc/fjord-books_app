@@ -36,7 +36,6 @@ $ git clone https://github.com/自分のアカウント名/fjord-books_app.git
     2. `yarn install` を実行
     3. `rails db:reset` を実行（既存の開発用DBがある場合もいったんdropして再作成します。また、サンプルデータも自動的に作成されます）
     4. `bundle exec rubocop` を実行して警告が出ないことを確認
-    5. `.env` ファイルにGitHubログイン用のidとsecretを保存（ `06-user_icon` ブランチをチェックアウトした場合のみ）
 4. `rails s` して動作確認し、スタート地点のアプリケーション仕様を把握してください。
 5. プラクティスで指示されたコードを書いてください。
 6. ソースコードが完成したら提出前にrubocopを実行し、警告の箇所を修正してください。
