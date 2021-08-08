@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t '.book' %></h1>
+<h1><%= t 'title.books' %></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= t '.title' %></th>
-      <th><%= t '.memo' %></th>
-      <th><%= t '.author' %></th>
-      <th><%= t '.picture' %></th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:memo) %></th>
+      <th><%= Book.human_attribute_name(:author) %></th>
+      <th><%= Book.human_attribute_name(:picture) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +20,21 @@
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
         <td><%= book.picture %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to book do %>
+            <%= t 'button.show' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_book_path(book) do %>
+            <%= t 'button.edit' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to book, method: :delete, data: { confirm: t('confirm') } do %>
+            <%= t 'button.destroy' %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +42,6 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to new_book_path do %>
+  <%= t 'button.new' %>
+<% end %>
