@@ -2,6 +2,4 @@
 
 <%= render 'form', book: @book %>
 
-<%= link_to books_path do %>
-  <%= t 'button.back' %>
-<% end %>
+<%= link_to t('button.back'), books_path%>

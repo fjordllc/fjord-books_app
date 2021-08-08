@@ -21,19 +21,13 @@
         <td><%= book.author %></td>
         <td><%= book.picture %></td>
         <td>
-          <%= link_to book do %>
-            <%= t 'button.show' %>
-          <% end %>
+          <%= link_to t('button.show'), book %>
         </td>
         <td>
-          <%= link_to edit_book_path(book) do %>
-            <%= t 'button.edit' %>
-          <% end %>
+          <%= link_to t('button.edit'), edit_book_path(book) %>
         </td>
         <td>
-          <%= link_to book, method: :delete, data: { confirm: t('confirm') } do %>
-            <%= t 'button.destroy' %>
-          <% end %>
+          <%= link_to t('button.destroy'), book, method: :delete, data: { confirm: t('confirm')} %>
         </td>
       </tr>
     <% end %>
