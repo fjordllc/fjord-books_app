@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        book:
+        attributes:
+          title:
+            blank: "空になっています。入力してください"
+          memo:
+            blank: "空になっています。入力してください"
+
+    models:
+      book: 
+    attributes:
+      book:
+        title: "タイトル"
+        memo: "メモ"
+        author: "作者"
+        picture: "画像"
+        back: "戻る"
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
+      submit: 保存する
