@@ -20,10 +20,14 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
-<p>
-  <strong><%= Book.human_attribute_name(:comment) %>:</strong>
-  
-</p>
+<% if @comments %>
+  <% @comments.each do |c| %>
+    <p>
+      <strong><%= Comment.human_attribute_name(:body) %>:</strong>
+      <%= c.comment.body %>
+    </p>
+  <% end %>
+<% end %>
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>

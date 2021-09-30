@@ -4,6 +4,7 @@ ja:
       book: 本  #g
       user: ユーザ
       report: レポート
+      comment: コメント
 
     attributes:
       book:
@@ -11,7 +12,6 @@ ja:
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
-        comment: コメント
       user:
         name: 氏名
         postal_code: 郵便番号
@@ -23,5 +23,6 @@ ja:
         created_at: 作成日時
         title: タイトル
         content: 本文
-        comment: コメント
+      comment:
+        body: コメント
 
