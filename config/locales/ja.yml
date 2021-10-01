@@ -231,6 +231,7 @@ ja:
   shared:
     comments:
       create: コメントする
+      no_comments: コメントはまだありません
   users:
     show:
       followings: "%{count} フォロー"
