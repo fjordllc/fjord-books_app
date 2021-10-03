@@ -8,6 +8,13 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
+        back: Back
+        edit: Edit
+        show: Show
+        destroy: Destroy
+        new book: New Book
+        create book: New Book
+        editing book: Edit book
   messages:
     created: successfully added!
     updated: successfully updated!
