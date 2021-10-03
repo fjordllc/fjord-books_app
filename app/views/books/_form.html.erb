@@ -25,13 +25,13 @@
     <%= form.label :author %>
     <%= form.text_field :author %>
   </div>
-
+ <%= form.submit %>
   <div class="field">
     <%= form.label :picture %>
     <%= form.file_field :picture %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit Book.human_attribute_name('create book') %>
   </div>
 <% end %>
