@@ -4,29 +4,26 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   # GET /books
-  # GET /books.json
   def index
     @books = Book.order(:id).page(params[:page])
   end
 
   # GET /books/1
-  # GET /books/1.json
   def show
     @book = Book.find(params[:id])
-    @comments = @book.comments
+    @comment = @book.comments.new
   end
 
   # GET /books/new
   def new
     @book = Book.new
-    @book.comments.new
+    @comment = @book.comments.new
   end
 
   # GET /books/1/edit
   def edit; end
 
   # POST /books
-  # POST /books.json
   def create
     @book = Book.new(book_params)
     if @book.save
@@ -37,7 +34,6 @@ class BooksController < ApplicationController
   end
 
   # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
   def update
     if @book.update(book_params)
       redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
@@ -47,7 +43,6 @@ class BooksController < ApplicationController
   end
 
   # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book.destroy
     respond_to do |format|
@@ -61,10 +56,11 @@ class BooksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_book
     @book = Book.find(params[:id])
+    @comments = @book.comments
   end
 
   # Only allow a list of trusted parameters through.
   def book_params
-    params.require(:book).permit(:title, :memo, :author, :picture, comments_attributes:[:comment])
+    params.require(:book).permit(:title, :memo, :author, :picture, comments_attributes:[:body, :id, :user_id, :commentable_type, :commentable_id]) # rubocop:disable all
   end
 end

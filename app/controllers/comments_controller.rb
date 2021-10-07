@@ -1,5 +1,6 @@
-class CommentsController < ApplicationController
+# frozen_string_literal: true
 
+class CommentsController < ApplicationController
   # new create edit update
 
   def new
@@ -8,9 +9,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    
     if @comment.save
-      redirect_to @comment, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+      redirect_to books_path, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
       render :new
     end
@@ -36,6 +36,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment, :commentable_type, :commentable_id )
+    params.require(:comment).permit %i[id body user_id commentable_type commentable_id]
   end
 end

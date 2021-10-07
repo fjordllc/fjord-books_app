@@ -1,0 +1,10 @@
+<%= form_with(model: comment, local: true) do |c| %>
+  <%= c.label :body %>
+  <%= c.text_area :body, required: 'required' %>
+  <%= c.hidden_field :user_id, value: current_user.id %>
+  <%= c.hidden_field :commentable_type, value: parent_capital %>
+  <%= c.hidden_field :commentable_id, value: parent.id %>
+  <div class="actions">
+    <%= c.submit %>
+  </div>
+<% end %>

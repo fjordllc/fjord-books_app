@@ -30,16 +30,7 @@
     <%= form.label :picture %>
     <%= form.file_field :picture %>
   </div>
-
-  <%= form.fields_for :comment do |c| %>
-    <div class="field">
-      <%= c.label :body %>
-      <%= c.text_area :body, required: 'required' %>
-      <%= c.hidden_field :commentable_type, value: 'book' %>
-      <%= c.hidden_field :commentable_id, value: book.id %>
-    </div>
-  <% end %>
-
+  
   <div class="actions">
     <%= form.submit %>
   </div>

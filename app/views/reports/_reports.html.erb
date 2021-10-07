@@ -2,7 +2,6 @@
   <table>
     <thead>
     <tr>
-      <th>ユーザーID（後で消す）</th>
       <th><%= Report.human_attribute_name(:created_at) %></th>
       <th><%= Report.human_attribute_name(:id) %></th>
       <th><%= Report.human_attribute_name(:title) %></th>
@@ -14,7 +13,6 @@
     <tbody>
     <% reports.each do |report| %>
       <tr>
-        <td><%= report.user_id %></td>
         <td><%= l report.created_at %></td>
         <td><%= report.id %></td>
         <td><%= report.title %></td>

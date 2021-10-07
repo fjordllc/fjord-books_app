@@ -20,14 +20,9 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
-<% if @comments %>
-  <% @comments.each do |c| %>
-    <p>
-      <strong><%= Comment.human_attribute_name(:body) %>:</strong>
-      <%= c.comment.body %>
-    </p>
-  <% end %>
-<% end %>
+<%= render 'comments/shared/comment', comments: @comments %>
+
+<%= render 'comments/shared/form', comment: @comment, parent_capital: Book, parent: @book %>
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>

@@ -27,7 +27,12 @@
       </tr>
     </tbody>
   </table>
+  
+  <%= render 'comments/shared/comment', comments: @comments %>
+
+  <%= render 'comments/shared/form', comment: @comment, parent_capital: Report, parent: @report %>
+
 <% else %>
-  <p>データがありません。</p>
+  <p><%= t('views.common.there_is_no_data') %></p>
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>
