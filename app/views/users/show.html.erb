@@ -37,3 +37,5 @@
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
 <%= link_to t('views.common.back'), users_path %>
+
+<%= render 'follow_relationships/follow_button' , user: @user %>
