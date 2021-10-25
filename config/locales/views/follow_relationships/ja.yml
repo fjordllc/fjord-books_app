@@ -1,0 +1,15 @@
+ja:
+  follow_relationships:
+    follow_button:
+      unfollow: 'フォロー中'
+      follow: 'フォローする'
+    followers:
+      follower_users: 'フォロワーユーザー一覧'
+      followed_count: 'フォロー数'
+      follower_count: 'フォロワー数'
+      no_users: 'ユーザーはいません'
+    followings:
+      follow_users: 'フォローユーザー一覧'
+      followed_count: 'フォロー数'
+      follower_count: 'フォロワー数'
+      no_users: 'ユーザーはいません'

@@ -38,6 +38,7 @@
 <% end %>
 <%= link_to t('views.common.back'), users_path %>
 
-<%= render 'follow_relationships/follow_button' , user: @user %>
-<%= link_to 'フォロー一覧', user_followings_path(user_id: @user) %>
-<%= link_to 'フォロワー一覧', user_followers_path(user_id: @user) %>
+<%= render 'follow_relationships/follow_button' , user: @user %><br>
+
+<%= link_to t('.followed_index'), user_followings_path(user_id: @user) %>
+<%= link_to t('.follower_index'), user_followers_path(user_id: @user) %>

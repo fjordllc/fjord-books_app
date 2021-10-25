@@ -1,5 +1,9 @@
 ---
 ja:
+  users:
+    show:
+      followed_index: 'フォロー一覧'
+      follower_index: 'フォロワー一覧'
   activerecord:
     errors:
       messages:
