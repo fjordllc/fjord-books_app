@@ -21,3 +21,4 @@
 <% else %>
   <p><%= t ".no_users" %></p>
 <% end %>
+<%= link_to t('.back'), user_path(id:@user) %>

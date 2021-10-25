@@ -8,8 +8,10 @@ ja:
       followed_count: 'フォロー数'
       follower_count: 'フォロワー数'
       no_users: 'ユーザーはいません'
+      back: '戻る'
     followings:
       follow_users: 'フォローユーザー一覧'
       followed_count: 'フォロー数'
       follower_count: 'フォロワー数'
       no_users: 'ユーザーはいません'
+      back: '戻る'

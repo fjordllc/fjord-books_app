@@ -4,6 +4,4 @@ inherit_gem:
     - "config/rails.yml"
 Style/FrozenStringLiteralComment:
   Enabled: false
-Rails/InverseOf:
-  Enabled: false  
   
