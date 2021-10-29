@@ -19,6 +19,10 @@
         <% end %>
       </tr>
   </tbody>
-</table>  
+</table>
 
 <%= link_to t('views.common.back'), reports_path %>
+
+<p>
+<%= render partial: 'comments/comments', locals: { commentable: @report } %>
+</p>

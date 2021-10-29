@@ -1,0 +1,31 @@
+<h2><%= Comment.model_name.human %></h2>
+<table>
+  <thead>
+    <tr>
+      <th><%= t('views.common.body') %></th>
+      <th><%= User.model_name.human %></th>
+      <th><%= t('views.common.created_at') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% commentable.comments.order(:id).each do |comment| %>
+      <tr>
+        <td><%= comment.body %></td>
+        <td>
+          <% if comment.user.name.empty? %>
+            <%= comment.user.email %>
+          <% else %>
+            <%= comment.user.name %>
+          <% end %>        
+        </td>
+        <td><%= l comment.created_at, format: :short%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <%= form.text_area :body, required: true %><br>
+  <%= form.submit %>
+<% end %>

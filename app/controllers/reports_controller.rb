@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.build(report_params)
     if @report.save
-      redirect_to @report, notice: t('controllers.common.notice_create')
+      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new
     end
