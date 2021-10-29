@@ -212,6 +212,10 @@ ja:
       destroy: 削除
       new: 新規作成
       back: 戻る
+      title: タイトル
+      body: 内容
+      created_at: 作成日
+      index: 一覧    
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
@@ -242,9 +246,9 @@ ja:
         title: フォロワー
   controllers:
     common:
-      notice_create: "%{name}が作成されました。"
-      notice_update: "%{name}が更新されました。"
-      notice_destroy: "%{name}が削除されました。"
+      notice_create: "作成されました。"
+      notice_update: "更新されました。"
+      notice_destroy: "削除されました。"
   relationships:
     create:
       notice: "フォローしました。"
