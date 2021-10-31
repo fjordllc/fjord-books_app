@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :followings, through: :follow_relationships, source: :followed
 
   def follow(user_id)
-    follow_relationships.create(followed_id: user_id)
+    follow_relationships.create!(followed_id: user_id)
   end
 
   def unfollow(user_id)
