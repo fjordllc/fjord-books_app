@@ -18,3 +18,11 @@ ja:
         address: 住所
         self_introduction: 自己紹介文
         avatar: ユーザ画像
+      report:
+        body: 内容
+        title: タイトル
+        created_at: 作成日
+      comment:
+        body: 内容
+        created_at: 作成日
+        user: ユーザ

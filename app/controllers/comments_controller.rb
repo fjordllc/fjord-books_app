@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_commentable
+  before_action :authenticate_user!
 
   # POST /comments or /comments.json
   def create
@@ -19,10 +19,5 @@ class CommentsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def comment_params
     params.require(:comment).permit(:body, :user_id, :commentable_id, :commentable_type)
-  end
-
-  def set_commentable
-    resource, id = request.path.split('/')[1, 2]
-    @commentable = resource.singularize.classify.constantize.find(id)
   end
 end

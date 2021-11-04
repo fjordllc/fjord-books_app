@@ -1,11 +1,11 @@
-<h1><%= Report.model_name.human %><%= t('views.common.index') %></h1>
+<h1><%= Report.model_name.human %></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= t('views.common.title') %></th>
-      <th><%= t('views.common.body') %></th>
-      <th><%= t('views.common.created_at') %></th>
+      <th><%= Report.human_attribute_name(:title) %></th>
+      <th><%= Report.human_attribute_name(:body) %></th>
+      <th><%= Report.human_attribute_name(:created_at) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

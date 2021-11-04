@@ -5,7 +5,8 @@ class ReportsController < ApplicationController
 
   # GET /reports or /reports.json
   def index
-    @reports = Report.all
+    # @reports = Report.all
+    @reports = Report.preload(:user, :comments)
   end
 
   # GET /reports/1 or /reports/1.json
@@ -17,7 +18,13 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit; end
+  def edit
+    if @report.user == current_user
+      render :edit
+    else
+      render :show
+    end
+  end
 
   # POST /reports or /reports.json
   def create
@@ -32,7 +39,7 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
     if @report.update(report_params)
-      redirect_to @report, notice: t('controllers.common.notice_update')
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
