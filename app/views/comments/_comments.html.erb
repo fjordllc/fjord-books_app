@@ -12,7 +12,7 @@
     <% commentable.comments.order(:id).each do |comment| %>
       <tr>
         <td><%= comment.body %></td>
-        <td><%= comment.name_or_email %></td>
+        <td><%= comment.user.name_or_email %></td>
         <td><%= l comment.created_at, format: :short %></td>
       </tr>
     <% end %>
