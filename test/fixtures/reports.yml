@@ -5,7 +5,7 @@ one:
   title: MyString
   content: MyText
 
-two:
-  user: two
-  title: MyString
-  content: MyText
+# two:
+#   user: two
+#   title: MyString
+#   content: MyText
