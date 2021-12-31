@@ -1,10 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 #one:
-#  user: one
-#  commentable: one
-#  commentable_type: Commentable
-#  content: MyString
+#  user: alice
+#  commentable: id
+#  commentable_type: Report
+#  content: そうかな
 #
 #two:
 #  user: two
