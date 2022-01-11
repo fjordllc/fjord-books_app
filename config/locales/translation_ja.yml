@@ -19,7 +19,7 @@ ja:
         avatar: ユーザ画像
       report:
         title: タイトル
-        report_date: 学習日
+        study_date: 学習日
         feeling: 気分
         study_start_time: 開始時間
         study_finish_time: 終了時間

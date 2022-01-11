@@ -1,0 +1,34 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:study_date) %>:</strong>
+  <%= @report.study_date %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:feeling) %>:</strong>
+  <%= @report.feeling %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:study_start_time) %></strong>
+  <strong><%= Report.human_attribute_name(:study_finish_time) %></strong>
+</p>
+
+<p>
+  <%= @report.to_hhmmdd(@report.study_start_time) %>
+  <%= @report.to_hhmmdd(@report.study_finish_time) %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:report_content) %>:</strong>
+  <%= @report.report_content %>
+</p>
+
+<%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+<%= link_to t('views.common.back'), reports_path %>
