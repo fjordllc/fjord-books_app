@@ -25,13 +25,14 @@
 
 <p>
   <strong><%= Comment.model_name.human %></strong>
-  <% @comments.set_comments(params).each do |comment| %>
-  <p>
-    <% p '@@@@@@@@@@@' %>
-    <% p @comments.set_comments_users(comment.user_id) %>
-    <% p '@@@@@@@@@@@' %>
-    <%= @comments.set_comments_users(comment.user_id) %>
-    <%= comment.comment_content %>
-  </p>
-<% end %>
+  <% @comments_and_users.each do |comment_and_user| %>
+    <p>
+      <% if comment_and_user.books.ids[0] == params[:id].to_i %>
+        <%= comment_and_user.name %>
+        <%= comment_and_user.comments.first.comment_content %>
+      <% else %>
+        <%=  %>
+      <% end %>
+    </p>
+  <% end %>
 </p>

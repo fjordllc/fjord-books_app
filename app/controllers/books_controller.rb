@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @comments = UsersComments.new
+    @comments_and_users = set_comments_users
   end
 
   # GET /books/new
