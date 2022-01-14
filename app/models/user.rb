@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :comments
+  has_many :books, through: :comments, source: :commentable, source_type: 'Book'
+  has_many :reports, through: :comments, source: :commentable, source_type: 'Report'
+
   def following?(user)
     active_relationships.where(following_id: user.id).exists?
   end

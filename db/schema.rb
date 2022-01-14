@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_231050) do
+ActiveRecord::Schema.define(version: 2022_01_13_073722) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 2021_05_31_231050) do
     t.string "picture"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "commentable_id", null: false
+    t.string "commentable_type", null: false
+    t.text "comment_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "following_id", null: false
     t.integer "follower_id", null: false
@@ -56,6 +67,17 @@ ActiveRecord::Schema.define(version: 2021_05_31_231050) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
     t.index ["following_id"], name: "index_relationships_on_following_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.text "title"
+    t.date "study_date"
+    t.text "feeling"
+    t.time "study_start_time"
+    t.time "study_finish_time"
+    t.text "report_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,4 +98,5 @@ ActiveRecord::Schema.define(version: 2021_05_31_231050) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "users"
 end

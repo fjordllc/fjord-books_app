@@ -22,3 +22,16 @@
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>
+
+<p>
+  <strong><%= Comment.model_name.human %></strong>
+  <% @comments.set_comments(params).each do |comment| %>
+  <p>
+    <% p '@@@@@@@@@@@' %>
+    <% p @comments.set_comments_users(comment.user_id) %>
+    <% p '@@@@@@@@@@@' %>
+    <%= @comments.set_comments_users(comment.user_id) %>
+    <%= comment.comment_content %>
+  </p>
+<% end %>
+</p>
