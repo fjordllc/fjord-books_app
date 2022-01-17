@@ -4,11 +4,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
-      if book.comments.create(comment_params)
+      if book.comments.create(comment_params).valid?
         format.html { redirect_to book_path(params[:book_id]) }
       else
-        p book.errors
-        format.html { redirect_to book_path(params[:book_id]),  alert: 'コメントを登録できませんでした。'}
+        format.html { redirect_to book_path(params[:book_id]), alert: 'コメントを登録できませんでした。'}
       end
     end
   end
