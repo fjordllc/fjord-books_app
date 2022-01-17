@@ -23,16 +23,25 @@
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>
 
-<p>
-  <strong><%= Comment.model_name.human %></strong>
-  <% @comments_and_users.each do |comment_and_user| %>
-    <p>
-      <% if comment_and_user.books.ids[0] == params[:id].to_i %>
-        <%= comment_and_user.name %>
-        <%= comment_and_user.comments.first.comment_content %>
-      <% else %>
-        <%=  %>
-      <% end %>
-    </p>
-  <% end %>
-</p>
+<p><strong><%= Comment.model_name.human %></strong></p>
+
+<%= form_with(model: [@book, @comment], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :comment_content %>
+    <%= form.hidden_field :commentable_type, value: @comment[:commentable_type] %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.text_area :comment_content, size: '50x5', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<% @book_comments.each do |comment| %>
+  <p>
+    <%= comment[:created_at].to_s(:datetime_jp) %>
+    <%= comment[:user_name] %>
+    <%= comment[:comment_content] %>
+  </p>
+<% end %>
