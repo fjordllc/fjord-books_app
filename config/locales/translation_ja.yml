@@ -25,3 +25,5 @@ ja:
         study_start_time: 開始時間
         study_finish_time: 終了時間
         report_content: 内容
+      comment:
+        comment_content: コメント記入欄

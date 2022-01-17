@@ -13,7 +13,14 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @comments_and_users = set_comments_users
+    @book_comments = []
+    set_comments.map do |comment|
+      if comment.commentable_id == params[:id].to_i && comment.commentable_type == 'Book'
+        @book_comments << { comment_content: comment.comment_content, created_at: comment.created_at, user_name: comment.name}
+      end
+    end
+
+    @comment = Comment.new(commentable_type: 'Book')
   end
 
   # GET /books/new
