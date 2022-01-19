@@ -33,7 +33,44 @@
 <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
 <%= link_to t('views.common.back'), reports_path %>
 
-<p>
-  <strong><%= Comment.model_name.human %></strong>
-  <%= render template: 'comments/index'%>
-</p>
+<p><strong><%= Comment.model_name.human %></strong></p>
+
+<%= form_with(model: [@report, @comment], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :comment_content %>
+    <%= form.hidden_field :commentable_type, value: @comment[:commentable_type] %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.text_area :comment_content, size: '50x5', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
+      <th><%= Comment.human_attribute_name(:contributor) %></th>
+      <th><%= Comment.human_attribute_name(:comment) %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @report_comments.empty? %>
+      <p>コメントはありません。</p>
+    <% else %>
+      <% @report_comments.each do |comment| %>
+      <tr>
+        <td><%= comment[:created_at].to_s(:datetime_jp) %></td>
+        <td><%= comment[:user_name] %></td>
+        <td><%= comment[:comment_content] %></td>
+        <td><%= link_to t('views.common.edit'), edit_report_comment_path(comment_content: comment[:comment_content], commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]) %></td>
+        <td><%= link_to t('views.common.destroy'), report_comment_path(commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

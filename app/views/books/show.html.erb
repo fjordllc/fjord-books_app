@@ -57,8 +57,8 @@
         <td><%= comment[:created_at].to_s(:datetime_jp) %></td>
         <td><%= comment[:user_name] %></td>
         <td><%= comment[:comment_content] %></td>
-        <td><%= link_to t('views.common.edit'), edit_book_comment_path(content: comment[:comment_content], book_id: params[:id],id: comment[:id]) %></td>
-        <td><%= link_to t('views.common.destroy'), book_comment_path(book_id: params[:id],id: comment[:id]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <td><%= link_to t('views.common.edit'), edit_book_comment_path(comment_content: comment[:comment_content], commentable_type: comment[:commentable_type], book_id: params[:id],id: comment[:id]) %></td>
+        <td><%= link_to t('views.common.destroy'), book_comment_path(commentable_type: comment[:commentable_type], book_id: params[:id],id: comment[:id]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
       </tr>
       <% end %>
     <% end %>
