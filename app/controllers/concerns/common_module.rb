@@ -3,6 +3,6 @@
 module CommonModule
   extend ActiveSupport::Concern
   def set_comments
-    User.joins(:comments).preload(:comments).select('comments.*, users.name')
+    User.joins(:comments).preload(:comments).select('comments.*, users.name, users.email')
   end
 end

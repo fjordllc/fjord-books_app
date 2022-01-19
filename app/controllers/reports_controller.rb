@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
     @report_comments = []
     set_comments.map do |comment|
       if comment.commentable_id == params[:id].to_i && comment.commentable_type == 'Report'
-        @report_comments << { id: comment.id , commentable_type: comment.commentable_type, comment_content: comment.comment_content, created_at: comment.created_at, user_name: comment.name }
+        @report_comments << { id: comment.id , commentable_type: comment.commentable_type, comment_content: comment.comment_content, created_at: comment.created_at, user_name: comment.name, user_id: comment.user_id, email: comment.email }
       end
     end
     @comment = Comment.new(commentable_type: 'Report')

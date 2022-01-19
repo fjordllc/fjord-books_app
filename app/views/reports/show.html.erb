@@ -65,10 +65,16 @@
       <% @report_comments.each do |comment| %>
       <tr>
         <td><%= comment[:created_at].to_s(:datetime_jp) %></td>
-        <td><%= comment[:user_name] %></td>
+        <% if comment[:user_name] == '' %>
+          <td><%= comment[:email] %></td>
+        <% else %>
+          <td><%= comment[:user_name] %></td>
+        <% end %>
         <td><%= comment[:comment_content] %></td>
-        <td><%= link_to t('views.common.edit'), edit_report_comment_path(comment_content: comment[:comment_content], commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]) %></td>
-        <td><%= link_to t('views.common.destroy'), report_comment_path(commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <% if current_user.id == comment[:user_id] %>
+          <td><%= link_to t('views.common.edit'), edit_report_comment_path(comment_content: comment[:comment_content], commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]) %></td>
+          <td><%= link_to t('views.common.destroy'), report_comment_path(commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <% end %>
       </tr>
       <% end %>
     <% end %>
