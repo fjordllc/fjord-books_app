@@ -72,8 +72,8 @@
         <% end %>
         <td><%= comment[:comment_content] %></td>
         <% if current_user.id == comment[:user_id] %>
-          <td><%= link_to t('views.common.edit'), edit_report_comment_path(comment_content: comment[:comment_content], commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]) %></td>
-          <td><%= link_to t('views.common.destroy'), report_comment_path(commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+          <td><%= link_to t('views.common.edit'), polymorphic_path([:edit, @report, :comment], comment_content: comment[:comment_content], commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]) %></td>
+          <td><%= link_to t('views.common.destroy'), polymorphic_path([@report, :comment], commentable_type: comment[:commentable_type], report_id: params[:id],id: comment[:id]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
         <% end %>
       </tr>
       <% end %>
