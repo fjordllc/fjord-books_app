@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   include CommonModule
 
   def create
     respond_to do |format|
       if collect_model_param[:set_type].comments.create(comment_params).valid?
-        format.html { redirect_to collect_model_param[:path] }
+        format.html { redirect_to collect_model_param[:path], notice: t('controllers.common.notice_create', name: Comment.model_name.human) }
       else
-        format.html { redirect_to collect_model_param[:path], alert: 'コメントを登録できませんでした。'}
+        format.html { redirect_to collect_model_param[:path], alert: 'コメントを登録できませんでした。' }
       end
     end
   end
@@ -19,9 +21,9 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if set_comment.update(comment_params)
-        format.html { redirect_to collect_model_param[:path] }
+        format.html { redirect_to collect_model_param[:path], notice: t('controllers.common.notice_update', name: Comment.model_name.human) }
       else
-        format.html { redirect_to collect_model_param[:path], alert: 'コメントを更新できませんでした。'}
+        format.html { redirect_to collect_model_param[:path], alert: 'コメントを更新できませんでした。' }
       end
     end
   end

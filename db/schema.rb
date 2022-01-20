@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_073722) do
+ActiveRecord::Schema.define(version: 2022_01_20_060810) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,13 +71,11 @@ ActiveRecord::Schema.define(version: 2022_01_13_073722) do
 
   create_table "reports", force: :cascade do |t|
     t.text "title"
-    t.date "study_date"
-    t.text "feeling"
-    t.time "study_start_time"
-    t.time "study_finish_time"
     t.text "report_content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,4 +97,5 @@ ActiveRecord::Schema.define(version: 2022_01_13_073722) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "users"
+  add_foreign_key "reports", "users"
 end

@@ -21,9 +21,9 @@ ja:
       report:
         title: タイトル
         study_date: 学習日
-        feeling: 気分
-        study_start_time: 開始時間
-        study_finish_time: 終了時間
         report_content: 内容
       comment:
         comment_content: コメント記入欄
+        created_at: 投稿日時
+        contributor: 投稿者
+        comment: コメント
