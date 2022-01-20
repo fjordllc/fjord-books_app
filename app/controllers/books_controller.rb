@@ -19,7 +19,7 @@ class BooksController < ApplicationController
         @book_comments << { id: comment.id , commentable_type: comment.commentable_type, comment_content: comment.comment_content, created_at: comment.created_at, user_name: comment.name, user_id: comment.user_id, email: comment.email }
       end
     end
-    @comment = Comment.new(commentable_type: 'Book')
+    @comment = Comment.new
   end
 
   # GET /books/new
