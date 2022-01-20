@@ -7,22 +7,7 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:study_date) %>:</strong>
-  <%= @report.study_date %>
-</p>
-
-<p>
-  <strong><%= Report.human_attribute_name(:feeling) %>:</strong>
-  <%= @report.feeling %>
-</p>
-
-<p>
-  <strong><%= Report.human_attribute_name(:study_start_time) %></strong>
-  <strong><%= Report.human_attribute_name(:study_finish_time) %></strong>
-</p>
-
-<p>
-  <%= @report.to_hhmmdd(@report.study_start_time) %>
-  <%= @report.to_hhmmdd(@report.study_finish_time) %>
+  <%= @report.created_at.strftime("%F") %>
 </p>
 
 <p>
