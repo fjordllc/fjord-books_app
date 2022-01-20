@@ -13,14 +13,12 @@ class CommentsController < ApplicationController
 
   def edit
     @model = collect_model_param[:set_type]
-    @comment = Comment.find(params[:id])
+    @comment = set_comment
   end
 
   def update
-    comment = Comment.find(params[:id])
-
     respond_to do |format|
-      if comment.update(comment_params)
+      if set_comment.update(comment_params)
         format.html { redirect_to collect_model_param[:path] }
       else
         format.html { redirect_to collect_model_param[:path], alert: 'コメントを更新できませんでした。'}
@@ -29,12 +27,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    comment.destroy
+    set_comment.destroy
     redirect_to collect_model_param[:path], notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private
+
+  def set_comment
+    Comment.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:comment_content, :commentable_type, :user_id)
