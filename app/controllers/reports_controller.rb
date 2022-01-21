@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
   def show
     @report_comments = []
     set_comments.map do |comment|
-      next if comment.commentable_id == params[:id].to_i && comment.commentable_type == 'Report'
+      next unless comment.commentable_id == params[:id].to_i && comment.commentable_type == 'Report'
 
       @report_comments << { id: comment.id,
                             comment_content: comment.comment_content,

@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   def show
     @book_comments = []
     set_comments.map do |comment|
-      next if comment.commentable_id == params[:id].to_i && comment.commentable_type == 'Book'
+      next unless comment.commentable_id == params[:id].to_i && comment.commentable_type == 'Book'
 
       @book_comments << { id: comment.id,
                           comment_content: comment.comment_content,
