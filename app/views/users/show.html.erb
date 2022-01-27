@@ -33,6 +33,26 @@
   <% end %>
 </p>
 
+<div class="following">
+    <h3><%= t("views.common.following") %></h3>
+    <% if @following.any? %>
+      <ul class="users-following">
+         <%= render partial: 'user', locals: {users: @following} %>
+      </ul>
+      <%= paginate @following %>
+    <% end %>
+</div>
+
+<div class="followers">
+    <h3><%= t("views.common.followers") %></h3>
+    <% if @followers.any? %>
+      <ul class="users-followers">
+         <%= render partial: 'user', locals: {users: @followers} %>
+      </ul>
+      <%= paginate @followers %>
+    <% end %>
+</div>
+<%= render 'follow_form' if user_signed_in? %>
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
