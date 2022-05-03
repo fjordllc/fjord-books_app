@@ -9,3 +9,10 @@ ja:
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
+  views:
+    pagination:
+      first: "&laquo; 最初へ"
+      last: "最後へ &raquo;"
+      previous: "&lsaquo; 戻る"
+      next: "次へ &rsaquo;"
+      truncate: "&hellip;"
