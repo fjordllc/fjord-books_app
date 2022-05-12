@@ -17,8 +17,11 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:created_by) %>:</strong>
-  <%# @repoort.user.name %>
+  <%= @report.user.name %>
 </p>
 
-<%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+
+<% if allowed_user?(@report.user) %>
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+<% end %>
 <%= link_to t('views.common.back'), reports_path %>
