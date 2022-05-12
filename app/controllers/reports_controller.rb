@@ -2,10 +2,11 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
+  before_action :deny_invalid_user, only: %i[edit update destroy]
 
   # GET /reports or /reports.json
   def index
-    @reports = Report.order(:id).page(params[:page])
+    @reports = Report.includes(:user).order(:id).page(params[:page])
   end
 
   # GET /reports/1 or /reports/1.json
@@ -66,6 +67,10 @@ class ReportsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def report_params
-    params.require(:report).permit(:title, :content)
+    params.require(:report).permit(:title, :content).merge(user_id: current_user.id)
+  end
+
+  def deny_invalid_user
+    redirect_to reports_path unless current_user == @report.user
   end
 end
