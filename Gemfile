@@ -61,3 +61,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'kaminari'
 gem 'net-smtp'
+
+gem 'net-imap'
+gem 'net-pop'
+gem 'net-smtp'
