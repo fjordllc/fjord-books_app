@@ -1,0 +1,11 @@
+<div>
+  <strong><%= Comment.model_name.human %>:</strong>
+  
+  <% if comments.empty? %>
+    <p>コメントはありません</p>
+  <% else %>
+    <div class="comment-list">
+      <%= render comments %>
+    </div>
+  <% end %>
+</div>
