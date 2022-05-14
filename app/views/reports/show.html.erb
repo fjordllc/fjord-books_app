@@ -20,6 +20,9 @@
   <%= @report.user.name %>
 </p>
 
+<%= render 'comments/comment_lists', comments: @comments %>
+
+<%= render 'comments/comment_form', relation: @report, comment: @comment unless allowed_user?(@report.user) %>
 
 <% if allowed_user?(@report.user) %>
   <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
