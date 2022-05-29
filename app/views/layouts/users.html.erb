@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BooksApp</title>
+    <title><%= User.model_name.human %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%= link_to t('views.common.users_list'), users_path %>
+    <%= link_to t('views.common.books_list'), books_path %>
     <%= yield %>
   </body>
 </html>
