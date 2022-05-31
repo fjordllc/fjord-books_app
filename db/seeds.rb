@@ -50,7 +50,7 @@ end
     password: 'p@ssw0rd',
     postal_code: '123-4567',
     address: '東京都新宿区',
-    information: "はじめまして。/n test#{n+1}と申します。"
+    information: "はじめまして。\n test#{n+1}と申します。"
   )
 end
 
