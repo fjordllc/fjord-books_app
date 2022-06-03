@@ -55,6 +55,11 @@ class User::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: %i[name email postal_code address information])
   end
 
+  # change after updating accounts
+  def after_update_path_for(resource)
+    user_path(resource)
+  end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
