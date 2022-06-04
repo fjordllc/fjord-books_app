@@ -9,7 +9,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # POST /resource
+  # POST /resource1
   # def create
   #   super
   # end

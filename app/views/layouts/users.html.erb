@@ -11,6 +11,7 @@
 
   <body>
     <%= link_to t('views.common.books_list'), books_path %>
+    <%= link_to t('views.common.sign_out'), destroy_user_session_path, method: :delete %>
     <%= yield %>
   </body>
 </html>
