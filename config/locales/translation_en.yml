@@ -9,3 +9,9 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
+      user:
+        name: Name
+        postal_code: Postal code
+        address: Address
+        self_introduction: Self introduction
+        avatar: Avatar
