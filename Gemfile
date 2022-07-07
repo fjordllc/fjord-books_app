@@ -36,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'faker'
   gem 'i18n_generators'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
@@ -61,3 +62,4 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
+gem 'kaminari'
