@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'open-uri'
-
 # queue_adapterを変更している理由とtransactionを使っている理由は下記URLを参照
 # https://bootcamp.fjord.jp/questions/779#answer_2262
 ActiveStorage::AnalyzeJob.queue_adapter = :inline
@@ -68,12 +66,13 @@ User.transaction do
   end
 end
 
-# 画像は生成も読み込みも時間がかかるので一部のデータだけにする
+# 画像は読み込みに時間がかかるので一部のデータだけにする
 User.order(:id).each.with_index(1) do |user, n|
   next unless (n % 8).zero?
 
-  image_url = Faker::Avatar.image(slug: user.email, size: '150x150')
-  user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
+  number = rand(1..6)
+  image_path = Rails.root.join("db/seeds/avatar-#{number}.png")
+  user.avatar.attach(io: File.open(image_path), filename: 'avatar.png')
 end
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
