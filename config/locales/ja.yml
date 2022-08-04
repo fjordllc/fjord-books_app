@@ -30,7 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ja:
-  books: '本一覧'
+  index_title: '本一覧'
+  edit_title: '本の編集'
+  new_title: '本の新規登録'
   title: 'タイトル'
   memo: 'メモ'
   author: '著者'
@@ -39,4 +41,13 @@ ja:
   edit: '編集'
   destroy: '削除'
   confirm_message: '本当に削除しますか?'
+  created_message: '本は正常に作成されました。'
+  updated_message: '本は正常に更新されました。'
+  destroyed_message: '本は正常に削除されました。'
   new_book: '新規作成'
+  back: '戻る'
+  error_explanation: '本の登録の権限がありませんでした'
+  helpers:
+    submit:
+      create: '登録する'
+      update: '更新する'

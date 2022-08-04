@@ -30,4 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  index_title: 'Books'
+  edit_title: 'Editing Book'
+  new_title: 'New Book'
+  title: 'Title'
+  memo: 'Memo'
+  author: 'Author'
+  picture: 'Picture'
   confirm_message: 'Are you sure?'
+  created_message: 'Book was successfully created.'
+  updated_message: 'Book was successfully updated.'
+  destroyed_message: 'Book was successfully destroyed.'
+  error_explanation: 'prohibited this book from being saved'
+
