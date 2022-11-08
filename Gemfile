@@ -35,6 +35,7 @@ end
 
 group :development do
   gem 'dummy_text_jp'
+  gem 'erb_lint', require: false
   gem 'faker'
   gem 'i18n_generators'
   gem 'letter_opener_web'
@@ -44,7 +45,6 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-  gem 'erb_lint', require: false
 end
 
 group :test do
