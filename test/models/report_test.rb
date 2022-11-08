@@ -17,7 +17,4 @@ class ReportTest < ActiveSupport::TestCase
     date = DateTime.new(1993, 2, 24, 12, 30, 45).to_date
     assert_equal date, report.created_on
   end
-  # test "the truth" do
-  #   assert true
-  # end
 end
