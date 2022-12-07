@@ -1,0 +1,10 @@
+<h1><%= t('views.translate.title_edit', name: Book.model_name.human) %></h1>
+
+<%= render "form", book: @book %>
+
+<br>
+
+<div>
+<%= link_to t('views.translate.show'), @book %> |
+<%= link_to t('views.translate.back'), books_path %>
+</div>

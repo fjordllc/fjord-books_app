@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= Book.model_name.human %></h1>
+
+<div id="books">
+  <% @books.each do |book| %>
+    <%= render book %>
+    <p>
+      <%= link_to t('views.translate.show'), book %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to t('views.translate.new'), new_book_path %>
