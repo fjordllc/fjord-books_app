@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.all.order(created_at: :asc).page(params[:page]).per(3)
   end
 
   # GET /books/1 or /books/1.json
@@ -70,5 +70,9 @@ class BooksController < ApplicationController
     p '**********'
     p params
     params.require(:book).permit(:title, :memo)
+  end
+
+  def paginate
+    @users = User.order(:name).page params[:page]
   end
 end

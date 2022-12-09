@@ -51,6 +51,7 @@ group :test do
 end
 
 gem 'i18n_generators'
+gem 'kaminari', '~> 1.2.1'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'net-imap'
 gem 'net-pop'
