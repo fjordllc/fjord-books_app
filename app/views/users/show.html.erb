@@ -1,0 +1,27 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<h2>ユーザー詳細</h2>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Post_num:</strong>
+  <%= @user.post_num %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>Introduce:</strong>
+  <%= @user.introduce %>
+</p>
+
+
+<%# <%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Back', users_path %>
