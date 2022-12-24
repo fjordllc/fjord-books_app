@@ -13,5 +13,6 @@ ja:
       user:
         name: 氏名
         postal_code: 郵便番号
+        picture: 写真
         address: 住所
         self_introduction: 自己紹介文
