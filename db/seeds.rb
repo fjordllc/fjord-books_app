@@ -49,7 +49,7 @@ User.destroy_all
   User.create!(
     email: "sample-#{n}@example.com",
     password: 'password',
-    name: name,
+    name:,
     postal_code: "123-#{n.to_s.rjust(4, '0')}",
     address: Faker::Address.full_address,
     self_introduction: "こんにちは、#{name}です。"
