@@ -14,9 +14,9 @@
 
 ### 初回のみ行う操作
 
-1. 右上の `Fork` ボタンを押してください。
-2. `#{自分のアカウント名}/fjord-books_app` が作成されます。
-3. 作業PCの任意の作業ディレクトリにて `git clone` してください。
+1. 右上の `Fork` ボタンを押してください。Copy the `main` branch only のチェックを外してフォークを作成します。
+3. `#{自分のアカウント名}/fjord-books_app` が作成されます。
+4. 作業PCの任意の作業ディレクトリにて `git clone` してください。
 
 ```
 $ git clone https://github.com/自分のアカウント名/fjord-books_app.git
