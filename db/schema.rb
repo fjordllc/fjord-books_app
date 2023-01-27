@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 2023_01_26_065724) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_reports_on_user_id"
+    t.integer "contributor_id"
+    t.index ["contributor_id"], name: "index_reports_on_contributor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,5 +99,5 @@ ActiveRecord::Schema.define(version: 2023_01_26_065724) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "follow_relationships", "users", column: "followed_id"
   add_foreign_key "follow_relationships", "users", column: "follower_id"
-  add_foreign_key "reports", "users"
+  add_foreign_key "reports", "users", column: "contributor_id"
 end

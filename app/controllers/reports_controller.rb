@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
-    if @report.user == current_user
+    if @report.contributor == current_user
       render "edit"
     else
       redirect_to reports_path
@@ -26,7 +26,10 @@ class ReportsController < ApplicationController
 
   # POST /reports or /reports.json
   def create
-    @report = current_user.report.build(report_params)
+    @report = Report.new(
+      **report_params,
+      contributor_id: current_user.id
+    )
 
     respond_to do |format|
       if @report.save
@@ -54,7 +57,7 @@ class ReportsController < ApplicationController
 
   # DELETE /reports/1 or /reports/1.json
   def destroy
-    if @report.user == current_user
+    if @report.contributor == current_user
       @report.destroy
 
       respond_to do |format|

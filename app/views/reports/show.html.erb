@@ -8,7 +8,7 @@
   <%= @report.content %>
 </p>
 
-<% if @report.user == current_user %>
+<% if @report.contributor == current_user %>
 <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
 <%= link_to t('views.common.destroy'), @report, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>

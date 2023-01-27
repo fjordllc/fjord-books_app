@@ -13,7 +13,7 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= report.title %></td>
-        <td><%= report.user.name %></td>
+        <td><%= report.contributor.name %></td>
         <td><%= link_to t('views.common.show'), report %></td>
       </tr>
     <% end %>
