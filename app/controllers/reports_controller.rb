@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[ show edit update destroy ]
+  before_action :correct_user, only: %i[ edit update destroy]
 
   # GET /reports or /reports.json
   def index
@@ -21,7 +22,7 @@ class ReportsController < ApplicationController
 
   # POST /reports or /reports.json
   def create
-    @report = Report.new(report_params)
+    @report = current_user.reports.build(report_params)
 
     respond_to do |format|
       if @report.save
@@ -67,4 +68,10 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(:title, :memo)
     end
+
+    def correct_user
+      @report = current_user.reports.find_by(id: params[:id])
+      redirect_to reports_path if @report.nil?
+    end
+
 end
