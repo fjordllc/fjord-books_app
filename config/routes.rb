@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: 'books#index'
   resources :books do
-    resources :comments, only: :create, module: books
+    resources :comments, only: :create, module: :books
   end
 
   resources :users, only: %i[index show] do
