@@ -10,7 +10,7 @@
   <%= @report.memo %>
 </p>
 
-<%= render partial: "comments/form", locals: { commentable: @report } %>
+<%= render partial: "form", locals: { commentable: @report } %>
 
 <% if current_user.id == @report.user_id %>
   <%= link_to 'Edit', edit_report_path(@report) %> |
