@@ -11,7 +11,7 @@
   <strong>コメント:</strong>
   <%= comment.content %>
   <strong>投稿日時:</strong>
-  <%= comment.created_at %>
+  <%= comment.created_at.to_s(:datetime_jp) %>
 </p>
 <% end %>
 
