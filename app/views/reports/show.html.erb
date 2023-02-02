@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= Report.model_name.human %></h2>
+
 <p>
-  <strong>Title:</strong>
+  <strong><%= Report.human_attribute_name(:title)%>:</strong>
   <%= @report.title %>
 </p>
 
 <p>
-  <strong>Memo:</strong>
+  <strong><%= Report.human_attribute_name(:memo)%>:</strong>
   <%= @report.memo %>
 </p>
 
 <%= render partial: "comments/form", locals: { commentable: @report } %>
-
-<% if current_user.id == @report.user_id %>
-  <%= link_to 'Edit', edit_report_path(@report) %> |
-<% end %>
-<%= link_to 'Back', reports_path %>
+<%= link_to t('views.common.back'), reports_path %>

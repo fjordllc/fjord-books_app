@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: 'コメントが正常に投稿されました'
     else
-      render :new # コメントが正常に保存されないときってどんなとき？
+      render :new
     end
   end
 
