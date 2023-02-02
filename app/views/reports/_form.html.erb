@@ -1,7 +1,18 @@
 <h2>コメント</h2>
 <% commentable.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-  <p><%= comment.created_at %></p>
+<p>
+  <% if comment.user.name.nil? %>
+    <strong>メールアドレス</strong>
+    <%= comment.user.email %>
+  <% else %>
+    <strong>氏名:</strong>
+    <%= comment.user.name %>
+  <% end %>
+  <strong>コメント:</strong>
+  <%= comment.content %>
+  <strong>投稿日時:</strong>
+  <%= comment.created_at %>
+</p>
 <% end %>
 
 <%= form_with(model: [commentable, Comment.new]) do |form| %>
