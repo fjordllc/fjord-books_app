@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @comment = @comments.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to @comments, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+      redirect_to @comments, notice: t('controllers.common.notice_create', name: Comment.human_attribute_name(:comment))
     else
-      # コメント作成失敗時の処理は後述
+      redirect_to @comments, notice: t('controllers.common.content_nil', name: Comment.human_attribute_name(:comment))
     end
   end
 
