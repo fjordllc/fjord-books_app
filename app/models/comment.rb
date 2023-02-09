@@ -2,5 +2,5 @@
 
 class Comment < ApplicationRecord
   belongs_to :comment, polymorphic: true
-  belogns_to :user
+  belongs_to :user
 end
