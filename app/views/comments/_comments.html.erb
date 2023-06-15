@@ -1,0 +1,25 @@
+<h2><%= Comment.model_name.human %></h2>
+<table>
+  <thead>
+    <tr>
+      <th><%= Comment.human_attribute_name(:body) %></th>
+      <th><%= Comment.human_attribute_name(:user) %></th>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% commentable.comments.order(:id).each do |comment| %>
+      <tr>
+        <td><%= comment.body %></td>
+        <td><%= comment.user.name_or_email %></td>
+        <td><%= l comment.created_at, format: :short %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <%= form.text_area :body, required: true %><br>
+  <%= form.submit %>
+<% end %>

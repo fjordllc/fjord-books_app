@@ -1,0 +1,28 @@
+<h1><%= Report.model_name.human %></h1>
+<table>
+  <thead>
+    <tr>
+      <th><%= Report.human_attribute_name(:title) %></th>
+      <th><%= Report.human_attribute_name(:body) %></th>
+      <th><%= Report.human_attribute_name(:created_at) %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @report.title %></td>
+        <td><%= @report.body %></td>
+        <td><%= l @report.created_at, format: :short %></td>
+        <% if current_user == @report.user %>
+          <td><%= link_to t('views.common.edit'), edit_report_path(@report) %> | <%= link_to t('views.common.destroy'), @report, method: :delete, data: { confirm: t('views.common.are_you_sure') } %></td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
+
+<%= link_to t('views.common.back'), reports_path %>
+
+<p>
+<%= render partial: 'comments/comments', locals: { commentable: @report } %>
+</p>
